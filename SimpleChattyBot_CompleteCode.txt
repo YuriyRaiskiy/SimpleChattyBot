@@ -1,0 +1,49 @@
+
+
+class ChatBot:
+    def __init__(self, bot_name, birth_year):
+        self.bot_name = bot_name
+        self.birth_year = birth_year
+
+    def __str__(self):
+        return f'Hello! My name is {self.bot_name}\nI was created in {self.birth_year}'
+
+    def request_user_name(self):
+        print('Please, remind me your name.')
+        self.user_input = input().strip()
+        return f'What a great name you have, {self.user_input}!'
+
+    def calculate_user_age(self):
+        print('''Let me guess your age.\nSay me remainders of dividing your age by 3, 5 and 7.''')
+        # self.user_input = [int(x) for x in input().split()]
+        # self.user_age = (self.user_input[0] * 70 + self.user_input[1] * 21 + self.user_input[2] * 15) % 105
+        self.remainder3 = int(input().strip())
+        self.remainder5 = int(input().strip())
+        self.remainder7 = int(input().strip())
+        self.user_age = (self.remainder3 * 70 + self.remainder5 * 21 + self.remainder7 * 15) % 105
+        return f'Your age is {self.user_age}; that\'s a good time to start programming!'
+
+    def counting(self):
+        print ('Now I will prove to you that I can count to any number you want.')
+        self.user_input = int(input().strip())
+        for i in range (0, self.user_input + 1):
+            print(f'{i} !')
+        return f'Completed, have a nice day!'
+
+    def test(self):
+        print('''Let's test your programming knowledge.\nWhy do we use methods?\n1. To repeat a statement multiple times.\n2. To decompose a program into several small subroutines.\n3. To determine the execution time of a program.\n4. To interrupt the execution of a program.''')
+        while True:
+            self.user_input = input().strip()
+            if self.user_input == '2':
+                print('Completed, have a nice day!')
+                break
+            else:
+                print('Please, try again.')
+        return 'Congratulations, have a nice day!'
+       
+dobrusya = ChatBot('Dobrusya', 2020)
+print(dobrusya)
+print(dobrusya.request_user_name())
+print(dobrusya.calculate_user_age())
+print(dobrusya.counting())
+print(dobrusya.test())
